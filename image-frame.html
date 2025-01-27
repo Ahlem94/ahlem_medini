@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Upload Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        font-weight: bold;
+        color: #555;
+    }
+
+    input[type="file"] {
+        margin-bottom: 10px;
+    }
+
+    button[type="submit"] {
+        background-color: #c9211e;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        translate: 160% 23%;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #c9211e;
+        
+    }
+
+    .image-preview {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #customText {
+        color: #555;
+    }
+
+    #customImage {
+        max-width: 100%;
+        margin-top: 10px;
+        border-radius: 5px;
+        display: flex;
+        translate: 170% ;
+
+    }
+</style>
+</head>
+<body>
+
+<h2>Medical Image Interpretation</h2>
+
+<form action="#" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="imageUpload">Select an mri image to upload:</label><br>
+        <input type="file" id="imageUpload" name="imageUpload" accept="image/*"><br>
+        <small>Supported formats: JPG, JPEG, PNG, GIF</small>
+    </div>
+    <button type="submit" id="uploadButton">submit</button>
+</form>
+
+<div class="image-preview" id="imagePreview">
+    <!-- Initially hidden -->
+    <p id="customText" style="display: none;">A brain tumor has been detected with probabilty 39%, else an encephalites with probabilty 12%  .</p>
+    <img src="tumor.png" alt="Custom Image" id="customImage" style="display: none;">
+</div>
+
+<script>
+    const imageUpload = document.getElementById('imageUpload');
+    const imagePreview = document.getElementById('imagePreview');
+    const customText = document.getElementById('customText');
+    const customImage = document.getElementById('customImage');
+    const uploadButton = document.getElementById('uploadButton');
+
+    uploadButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Show custom text and image
+        customText.style.display = 'block';
+        customImage.style.display = 'block';
+    });
+    
+</script>
+
+</body>
+</html>
+

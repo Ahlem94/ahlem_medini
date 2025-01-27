@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Tables</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+                color: #c9211e;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    tr:hover {
+        background-color: #ddd;
+    }
+        h2 {
+
+    }
+    
+        .center-button {
+    text-align: center;
+  }
+
+  .center-button button {
+
+    background-color: #c9211e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+
+  }
+</style>
+</head>
+<body>
+
+<h2>Likely diseases  for patient 231</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Disease</th>
+      <th>probabilty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CAD</td>
+      <td>27.2 %</td>
+    </tr>
+    <tr>
+      <td>CHD</td>
+      <td>23 %</td>
+    </tr>
+    <tr>
+      <td>Pneumonia </td>
+      <td>17 %</td>
+    </tr>    <tr>
+      <td>Stomach ulcer </td>
+      <td>15 %</td>
+    </tr>
+        <tr>
+      <td>Covid</td>
+      <td>14 %</td>
+    </tr>    
+  </tbody>
+</table>
+
+<h2>Symptoms to check</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Symptom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fatigue</td>
+    </tr>
+    <tr>
+      <td>respiration rythm</td>
+    </tr>
+    <tr>
+      <td>pain between the shoulder blades</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Tests to do</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ECG</td>
+    </tr>
+    <tr>
+      <td>Computerized tomography (CT) scan</td>
+    </tr>
+    <tr>
+      <td>chest X-ray</td>
+    </tr>
+  </tbody>
+</table> <br/> 
+    <div class="center-button">
+  <button type="submit" id="submitButton" >Download</button>
+  								<a href="report.html">
+    <button type="submit" id="submitButton" >Report</button>
+</a></div>
+</body>
+</html>
+

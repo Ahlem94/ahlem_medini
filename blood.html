@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Form Example</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  #formContainer {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 400px;
+  }
+  #optionSelect {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  label {
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  button[type="submit"] {
+    background-color: #c9211e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button[type="submit"]:hover {
+    background-color: #c9211e;
+  }
+</style>
+</head>
+<body>
+
+<select id="optionSelect">
+
+
+            <option value="custom">Custom Blood Test</option>
+            <option value="lipid">Lipid Profile</option>
+            <option value="cbc">Complete Blood Count (CBC)</option>
+            <option value="glucose">Glucose Test</option>
+            <option value="iron">Iron Panel</option>
+</select>
+
+<div id="formContainer" class="hidden">
+  <form id="dynamicForm">
+    <div id="inputFields">
+      <!-- Input fields will be dynamically added here based on the selected option -->
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('optionSelect').addEventListener('change', function() {
+    var selectedOption = this.value;
+    var formContainer = document.getElementById('formContainer');
+    var inputFieldsContainer = document.getElementById('inputFields');
+    
+    // Clear any existing input fields
+    inputFieldsContainer.innerHTML = '';
+    
+    // Customize the form based on the selected option
+    if (selectedOption === 'cbc') {
+      createInputField('RBC count', 'number', 'RBC count cells/mcL');
+      createInputField('WBC count', 'number', 'WBC count cells/mcL');
+            createInputField('platelets', 'number', 'platelets /dL');
+                  createInputField('hemoglobin', 'number', 'hemoglobin gm/dL');
+    } else if (selectedOption === 'custom') {
+      createInputField('WBC count', 'number', 'WBC count cells/mcL');
+            createInputField('platelets', 'number', 'platelets /dL');
+    }else if (selectedOption === 'lipid') {    
+      createInputField('WBC count', 'number', 'WBC count cells/mcL');
+            createInputField('platelets', 'number', 'platelets /dL');
+            
+    }
+    else if (selectedOption === 'glucose') {
+      createInputField('WBC count', 'number', 'WBC count cells/mcL');
+            createInputField('platelets', 'number', 'platelets /dL');
+    }else   if (selectedOption === 'iron') {
+      createInputField('RBC count', 'number', 'RBC count cells/mcL');
+      createInputField('WBC count', 'number', 'WBC count cells/mcL');
+            createInputField('platelets', 'number', 'platelets /dL');
+      createInputField('hemoglobin', 'number', 'hemoglobin gm/dL');
+    }
+    
+    // Show the form container if it's hidden
+    if (formContainer.classList.contains('hidden')) {
+      formContainer.classList.remove('hidden');
+    }
+  });
+
+  function createInputField(id, type, placeholder) {
+    var inputFieldsContainer = document.getElementById('inputFields');
+    var label = document.createElement('label');
+    label.setAttribute('for', id);
+    label.textContent = id.charAt(0).toUpperCase() + id.slice(1) + ':';
+    var input = document.createElement('input');
+    input.setAttribute('type', type);
+    input.setAttribute('id', id);
+    input.setAttribute('name', id);
+    input.setAttribute('placeholder', placeholder);
+    var lineBreak = document.createElement('br');
+    inputFieldsContainer.appendChild(label);
+    inputFieldsContainer.appendChild(input);
+    inputFieldsContainer.appendChild(lineBreak);
+  }
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select Option to Input</title>
+<style>
+  /* Style for the form container */
+  .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Style for the input field */
+  #myInput {
+    width: calc(100% - 40px); /* Adjust based on clear button width */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    position: relative;
+  }
+
+  /* Style for the clear button */
+  .clear-button {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ddd;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+  }
+
+  .clear-button::after {
+    content: "×";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #555;
+  }
+
+  #myInput:hover .clear-button {
+    display: block;
+  }
+
+  /* Style for the select dropdown */
+  #mySelect {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  /* Style for the options displayed in the input field */
+  .selected-option {
+    display: inline-block;
+    background-color: #c9211e;
+    color: #fff;
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+
+  .selected-option .close-button {
+    margin-left: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .selected-option .close-button:hover {
+    color: #ff0000;
+  }
+</style>
+</head>
+<body>
+
+<div class="form-container">
+  <select id="mySelect">
+
+    <option value="COVID-19">COVID-19</option>
+    <option value="CAD">CAD</option>
+    <option value="Diabetes">Diabetes</option>
+        <option value="HIV">HIV</option>
+    <option value="Asthma">Asthma</option>
+    <option value="chronic bronchitis">chronic bronchitis</option>
+  </select>
+
+  <div id="myInput"></div>
+
+</div>
+
+<script>
+  // Get the select and input elements
+  var select = document.getElementById("mySelect");
+  var input = document.getElementById("myInput");
+
+  // Add event listener to the select element
+  select.addEventListener("change", function() {
+    // Get the selected option value
+    var selectedOption = select.options[select.selectedIndex].value;
+    
+    // Create a span element for the selected option
+    var optionSpan = document.createElement('span');
+    optionSpan.classList.add('selected-option');
+    optionSpan.textContent = selectedOption;
+
+    // Create a close button for the selected option
+    var closeButton = document.createElement('span');
+    closeButton.classList.add('close-button');
+    closeButton.textContent = '×';
+    closeButton.addEventListener('click', function() {
+      input.removeChild(optionSpan);
+    });
+
+    // Append the close button to the option span
+    optionSpan.appendChild(closeButton);
+
+    // Append the option span to the input div
+    input.appendChild(optionSpan);
+  });
+</script>
+
+</body>
+</html>
+

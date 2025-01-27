@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Parameters Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-width: 90%;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #c9211e
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: calc(100% - 16px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        input[type="text"].clicked {
+            background-color: #f7f7f7;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        input[type="submit"].clicked {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Patient Lifestyle</h2>
+        <form id="medicalForm" action="#" method="post">
+            <label for="id">id</label>
+            <input type="text" id="id" name="id" required>
+            
+            <label for="age">age:</label>
+            <input type="text" id="age" name="age" required>
+
+<fieldset>
+  <legend>gender:</legend>
+
+  <div>
+    <input type="radio" id="male" name="gender" value="male" checked />
+    <label for="male">Male</label>
+  </div>
+
+  <div>
+    <input type="radio" id="female" name="gender" value="female" checked />
+    <label for="female">Female</label>
+  </div>
+
+
+</fieldset>
+<fieldset>
+  <legend>smoking:</legend>
+
+  <div>
+    <input type="radio" id="smoking" name="smoking" value="yes" checked />
+    <label for="yes">yes</label>
+  </div>
+
+  <div>
+    <input type="radio" id="nosmoking" name="smoking" value="no" checked />
+    <label for="no">no</label>
+  </div>
+
+
+</fieldset>
+<fieldset>
+  <legend>Alcohol:</legend>
+
+  <div>
+    <input type="radio" id="alcohol" name="alcohol" value="yes" checked />
+    <label for="yes">yes</label>
+  </div>
+
+  <div>
+    <input type="radio" id="noalcohol" name="alcohol" value="no" checked />
+    <label for="no">no</label>
+  </div>
+
+
+</fieldset>
+            
+
+
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent form submission
+            this.classList.add('clicked'); // Apply clicked style to submit button
+            var inputs = document.querySelectorAll('input[type="text"]');
+            inputs.forEach(function(input) {
+                input.classList.add('clicked'); // Apply clicked style to input fields
+            });
+            // You can add additional actions here, such as form validation or submission
+            alert('Form submitted successfully!'); // For demonstration purposes
+        });
+    </script>
+</body>
+</html>
+

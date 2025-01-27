@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <img src="thara.png" alt="Logo" class="logo">
+    <h1>Fiche Médicale</h1>
+
+    <form action="traitement.php" method="post">
+     
+    <fieldset>
+        <legend>Informations Générales du Patient</legend>
+        <label for="nom">Nom Complet :</label>
+        <input type="text" id="nom" name="nom"><br><br>
+        
+        <label for="date_naissance">Date de Naissance :</label>
+        <input type="date" id="date_naissance" name="date_naissance"><br><br>
+        
+        <label>Sexe :</label>
+        <input type="radio" id="homme" name="sexe" value="homme">
+        <label for="homme">Homme</label>
+        <input type="radio" id="femme" name="sexe" value="femme">
+        <label for="femme">Femme</label><br><br>
+        
+        <label for="adresse">Adresse :</label>
+        <textarea id="adresse" name="adresse"></textarea><br><br>
+        
+        <label for="telephone">Numéro de Téléphone :</label>
+        <input type="tel" id="telephone" name="telephone"><br><br>
+        
+        <label for="identification">Numéro d'Identification :</label>
+        <input type="text" id="identification" name="identification"><br><br>
+        
+        <label for="urgence">Personne à Contacter en Cas d'Urgence :</label>
+        <input type="text" id="urgence" name="urgence"><br><br>
+    </fieldset>
+    <br/>
+    <fieldset>
+        <legend>Informations du Médecin</legend>
+        <label for="nom_medecin">Nom du Médecin :</label>
+        <input type="text" id="nom_medecin" name="nom_medecin"><br><br>
+        
+        <label for="specialite">Spécialité :</label>
+        <input type="text" id="specialite" name="specialite"><br><br>
+        
+        <label for="adresse_cabinet">Adresse du Cabinet :</label>
+        <textarea id="adresse_cabinet" name="adresse_cabinet"></textarea><br><br>
+        
+        <label for="telephone_medecin">Numéro de Téléphone du Médecin :</label>
+        <input type="tel" id="telephone_medecin" name="telephone_medecin"><br><br>
+    </fieldset>
+
+    <!-- Ajoutez d'autres fieldsets pour les autres sections de la fiche médicale -->
+  <br/>
+    <div class="center-button">
+  <button type="submit" id="submitButton" >Download</button>
+
+</div>
+</form>
+
+</body>
+</html>
+

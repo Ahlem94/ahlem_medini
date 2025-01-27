@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Table with Rating Stars, Dropdown, and Submit Button</title>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+
+
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    tr:hover {
+        background-color: #ddd;
+    }
+    .star-rating {
+        unicode-bidi: bidi-override;
+        direction: rtl;
+    }
+    .star-rating > span {
+        display: inline-block;
+        position: relative;
+        width: 1.1em;
+    }
+    .star-rating > span:hover:before,
+    .star-rating > span:hover ~ span:before {
+        content: "\2605";
+        position: absolute;
+        color: gold;
+    }
+        h2 {
+    color: #c9211e;
+    }
+    
+        .center-button {
+    text-align: center;
+  }
+
+  .center-button  {
+
+    background-color: #c9211e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+
+  }
+</style>
+</head>
+<body>
+<h2>History of Diagnosis </h2>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Rating</th>
+            <th>Final Diagnosis</th>
+            <th>Update diagnosis</th>
+            <th>Submit</th> <!-- New column for submit button -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>134</td>
+            <td class="star-rating">
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+            </td>
+            <td>
+                <select>
+                    <option value="option1">CAD</option>
+                    <option value="option2">CHD</option>
+                    <option value="option3">Covid</option>
+                <option value="option3">Pneumonia</option>
+                </select>
+            </td>
+            <td><button  class="center-button" >Update</button></td>
+            <td><input type="submit"  class="center-button"  value="Submit"></td> <!-- Submit button -->
+        </tr>
+        <tr>
+            <td>165</td>
+            <td class="star-rating">
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+            </td>
+            <td>
+                <select>
+                    <option value="option1">CAD</option>
+                    <option value="option2">CHD</option>
+                    <option value="option3">Covid</option>
+                <option value="option3">Pneumonia</option>
+                </select>
+            </td>
+            <td><button class="center-button" >Update</button></td>
+            <td><input type="submit"  class="center-button"  value="Submit"></td> <!-- Submit button -->
+        </tr>
+                <tr>
+            <td>175</td>
+            <td class="star-rating">
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+            </td>
+            <td>
+                <select>
+                    <option value="option1">CAD</option>
+                    <option value="option2">CHD</option>
+                    <option value="option3">Covid</option>
+                <option value="option3">Pneumonia</option>
+                </select>
+            </td>
+            <td><button class="center-button" >Update</button></td>
+            <td><input type="submit"  class="center-button"  value="Submit"></td> <!-- Submit button -->
+        </tr>
+                <tr>
+            <td>183</td>
+            <td class="star-rating">
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+                <span>&#9734;</span>
+            </td>
+            <td>
+                <select>
+                    <option value="option1">CAD</option>
+                    <option value="option2">CHD</option>
+                    <option value="option3">Covid</option>
+                <option value="option3">Pneumonia</option>
+                </select>
+            </td>
+            <td><button class="center-button" >Update</button></td>
+            <td><input type="submit"  class="center-button"  value="Submit"></td> <!-- Submit button -->
+        </tr>
+        <!-- Add more rows as needed -->
+    </tbody>
+</table>
+
+<script>
+    // JavaScript for handling click events to set rating
+    document.querySelectorAll('.star-rating').forEach(function(starRating) {
+        starRating.addEventListener('click', function(event) {
+            const stars = event.target.parentNode.querySelectorAll('span');
+            const clickedStarIndex = Array.prototype.indexOf.call(stars, event.target);
+            for (let i = 0; i < stars.length; i++) {
+                if (i <= clickedStarIndex) {
+                    stars[i].textContent = '★';
+                } else {
+                    stars[i].textContent = '☆';
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+
